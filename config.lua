@@ -7,6 +7,8 @@ reload "user.options"
 reload "user.telescope"
 reload "user.colorizer"
 reload "user.lsp"
+reload "user.git"
+reload "user.neogit"
 
 
 lvim.colorscheme = "tokyonight"
