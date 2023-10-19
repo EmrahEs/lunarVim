@@ -26,6 +26,10 @@ lvim.builtin.nvimtree.setup.renderer.icons.glyphs.folder.arrow_closed = ""
 -- lvim.builtin.nvimtree.setup.renderer.icons.glyphs.folder.empty = ""
 -- lvim.builtin.nvimtree.setup.renderer.icons.glyphs.folder.symlink = ""
 lvim.builtin.nvimtree.setup.view.centralize_selection = true
+lvim.builtin.nvimtree.setup.update_focused_file.update_root = false
+lvim.builtin.nvimtree.setup.update_focused_file.update_cwd = false
+lvim.builtin.nvimtree.setup.update_cwd = false
+lvim.builtin.nvimtree.setup.sync_root_with_cwd = false
 -- lvim.builtin.nvimtree.setup.view.cursor = false
 
 -- vim.api.nvim_create_autocmd({ 'WinEnter', 'BufWinEnter' }, {

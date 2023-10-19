@@ -3,11 +3,8 @@ lvim.builtin.which_key.setup.ignore_missing = true
 
 lvim.builtin.which_key.mappings["b"] = { "<cmd>Telescope buffers<cr>", "Buffers" }
 lvim.builtin.which_key.mappings["v"] = { "<cmd>vsplit<cr>", "vsplit" }
-lvim.builtin.which_key.mappings["h"] = { "<cmd>nohlsearch<cr>", "nohl" }
-lvim.builtin.which_key.mappings["o"] = { "<cmd>AerialToggle!<cr>", "Outline" }
-lvim.builtin.which_key.mappings["q"] = { '<cmd>lua require("user.functions").smart_quit()<CR>', "Quit" }
 lvim.builtin.which_key.mappings["/"] = { '<cmd>lua require("Comment.api").toggle.linewise.current()<CR>', "Comment" }
-
+lvim.builtin.terminal.open_mapping = "<c-t>"
 
 -- Harpoon
 lvim.builtin.which_key.mappings["x"] = {
@@ -34,47 +31,21 @@ lvim.builtin.which_key.mappings["f"] = {
   C = { "<cmd>Telescope commands<cr>", "Commands" },
 }
 
-lvim.builtin.which_key.mappings["g"] = {
-  name = "Git",
-  -- g = { "<cmd>lua require 'lvim.core.terminal'.lazygit_toggle(12000)<cr>", "Lazygit" },
-  g = { "<cmd>Neogit<cr>", "Neogit" },
-  j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
-  k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
-  l = { "<cmd>GitBlameToggle<cr>", "Blame" },
-  p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
-  r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
-  R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
-  s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
-  u = {
-    "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
-    "Undo Stage Hunk",
-  },
-  n = { ":!git checkout -b ", "Checkout New Branch" },
-  o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-  b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-  c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
-  f = { "<cmd>Telescope git_bcommits<cr>", "Checkout buffer commit" },
-  d = {
-    "<cmd>Gitsigns diffthis HEAD<cr>",
-    "Diff",
-  },
-  G = {
-    name = "Gist",
-    a = { "<cmd>Gist -b -a<cr>", "Create Anon" },
-    d = { "<cmd>Gist -d<cr>", "Delete" },
-    f = { "<cmd>Gist -f<cr>", "Fork" },
-    g = { "<cmd>Gist -b<cr>", "Create" },
-    l = { "<cmd>Gist -l<cr>", "List" },
-    p = { "<cmd>Gist -b -p<cr>", "Create Private" },
-  },
-}
+--lvim.builtin.which_key.mappings["t"] = {
+--  name = "ToggleTerm",
+--  f = { "<cmd>ToggleTerm direction=float<cr>", "Float" }, -- Floating Terminal
+        -- Play with size according to your needs.
+--  h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" }, -- Horizontal Terminal,
+--  v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" }, -- Vertical T
+--}
+-- lvim.builtin.which_key.mappings["t"] = {
+--         name = "Terminal",
+--         f = { "<cmd>ToggleTerm direction=float<cr>", "Float" }, -- Floating Terminal
+--         -- Play with size according to your needs.
+--         h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" }, -- Horizontal Terminal,
+--         v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" }, -- Vertical Terminal
+-- }
 
-lvim.builtin.which_key.mappings["v"] = {
- name = "+Terminal",
-  f = { "<cmd>ToggleTerm<cr>", "Floating terminal" },
-  v = { "<cmd>2ToggleTerm size=30 direction=vertical<cr>", "Split vertical" },
-  h = { "<cmd>2ToggleTerm size=15 direction=horizontal<cr>", "Split horizontal" },
-}
 lvim.builtin.which_key.mappings["l"] = {
   name = "LSP",
   a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
@@ -114,54 +85,13 @@ lvim.builtin.which_key.mappings["l"] = {
   u = { "<cmd>LuaSnipUnlinkCurrent<cr>", "Unlink Snippet" },
 }
 
-lvim.builtin.which_key.mappings["t"] = {
-  name = "Tab",
-  t = {
-    "<cmd>lua require('telescope').extensions['telescope-tabs'].list_tabs(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal', prompt_title='Tabs'})<cr>",
-    "Find Tab",
-  },
-  n = { "<cmd>tabnew %<cr>", "New Tab" },
-  c = { "<cmd>tabclose<cr>", "Close Tab" },
-  o = { "<cmd>tabonly<cr>", "Only Tab" },
-}
-
 lvim.builtin.which_key.mappings[";"] = nil
 -- lvim.builtin.which_key.mappings["c"] = nil
 lvim.builtin.which_key.mappings["L"] = nil
 lvim.builtin.which_key.mappings["s"] = nil
 lvim.builtin.which_key.mappings["w"] = nil
 
-local m_opts = {
-  mode = "n", -- NORMAL mode
-  prefix = "m",
-  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-  silent = true, -- use `silent` when creating keymaps
-  noremap = true, -- use `noremap` when creating keymaps
-  nowait = true, -- use `nowait` when creating keymaps
-}
-
 local status_ok, which_key = pcall(require, "which-key")
 if not status_ok then
   return
 end
-
-local m_mappings = {
-  m = { "<cmd>BookmarkToggle<cr>", "Toggle" },
-  j = { "<cmd>BookmarkNext<cr>", "Next" },
-  k = { "<cmd>BookmarkPrev<cr>", "Prev" },
-  c = { "<cmd>BookmarkClear<cr>", "Clear" },
-  l = { "<cmd>BookmarkList<cr>", "List" },
-  f = { "<cmd>FilemarkToggle<cr>", "Mark File" },
-  h = { '<cmd>lua require("harpoon.mark").add_file()<cr>', "Harpoon" },
-  -- ["."] = { '<cmd>lua require("harpoon.ui").nav_next()<cr>', "Harpoon Next" },
-  -- [","] = { '<cmd>lua require("harpoon.ui").nav_prev()<cr>', "Harpoon Prev" },
-  -- l = { "<cmd>lua require('user.bfs').open()<cr>", "Buffers" },
-  -- s = { "<cmd>Telescope harpoon marks<cr>", "Search Files" },
-  -- s = {
-  --   "<cmd>lua require('telescope').extensions.vim_bookmarks.all({ hide_filename=false, prompt_title=\"bookmarks\", shorten_path=false })<cr>",
-  --   "Show",
-  -- },
-  -- [";"] = { '<cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>', "Harpoon UI" },
-}
-which_key.register(m_mappings, m_opts)
-

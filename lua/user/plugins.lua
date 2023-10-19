@@ -3,10 +3,10 @@ lvim.plugins = {
     "folke/tokyonight.nvim",
     lazy = false,
   },
-  {
-    'Exafunction/codeium.vim',
-    event = 'BufEnter'
-  },
+  -- {
+  --   'Exafunction/codeium.vim',
+  --   event = 'BufEnter'
+  -- },
   {
     'folke/todo-comments.nvim',
     event = 'BufRead',
@@ -34,11 +34,14 @@ lvim.plugins = {
     config = true
   },
   { "christianchiarulli/telescope-tabs", branch = "chris" },
-  'christoomey/vim-tmux-navigator',
+ -- 'christoomey/vim-tmux-navigator',
   'frenzyexists/aquarium-vim',
   'jose-elias-alvarez/typescript.nvim',
   'mfussenegger/nvim-dap',
   "roobert/tailwindcss-colorizer-cmp.nvim",
   "NvChad/nvim-colorizer.lua",
   "nvim-treesitter/nvim-treesitter-textobjects",
+  "andweeb/presence.nvim",
+  -- "nvim-lualine/lualine.nvim"
+  -- {'akinsho/toggleterm.nvim', version = "*", config = true}
 }

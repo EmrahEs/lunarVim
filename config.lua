@@ -1,4 +1,6 @@
 reload "user.plugins"
+reload "user.toggleterm"
+reload "user.presence"
 reload "user.harpoon"
 reload "user.keymaps"
 reload "user.whichkey"
