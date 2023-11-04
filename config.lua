@@ -11,6 +11,7 @@ reload "user.colorizer"
 reload "user.lsp"
 reload "user.git"
 reload "user.neogit"
+reload "user.null-ls"
 
 
 lvim.colorscheme = "tokyonight"

@@ -42,6 +42,8 @@ lvim.plugins = {
   "NvChad/nvim-colorizer.lua",
   "nvim-treesitter/nvim-treesitter-textobjects",
   "andweeb/presence.nvim",
+  "MunifTanjim/prettier.nvim",
+  "jose-elias-alvarez/null-ls.nvim"
   -- "nvim-lualine/lualine.nvim"
   -- {'akinsho/toggleterm.nvim', version = "*", config = true}
 }
